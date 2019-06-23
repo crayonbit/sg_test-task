@@ -45,11 +45,13 @@ export default class MixerView extends View {
   }
 
   private getTexturesByType(type:string, resources:any):PIXI.Texture[] {
-    return Object.entries(resources)
-    .filter(([name, resource]) => name.includes(type))
-    .map((arr:LooseObject) => {
-      return arr[1].texture;
-    });
+    const textures:PIXI.Texture[] = [];
+    for (let name in resources) {
+      if (name.includes(type)) {
+        textures.push(resources[name].texture);
+      }
+    }
+    return textures;
   }
 
   private createTitle(text:string, fontSize:number, posX:number, posY:number) {

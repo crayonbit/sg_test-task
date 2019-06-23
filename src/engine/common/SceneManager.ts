@@ -37,11 +37,13 @@ export default class SceneManager {
   }
 
   public async switchScene(sceneID: number) {
+
     this.stopCurrentScene();
     await this.fadeScene(this._currentScene, 0);
     this.removeCurrentScene();
     this.initializeNewScene(this.scenes[sceneID]);
     await this.fadeScene(this.scenes[sceneID], 1);
+    
     this.startCurrentScene();
   }
 

@@ -33,11 +33,8 @@ export default class StackView extends View {
     this.addChildAt(this.panelView, 0);
 
     if (!this.initialized) {
-      const cardsTextures:PIXI.Texture[] = Object.entries(resources)
-      .filter(([name, resource]) => name.includes('card'))
-      .map((arr:LooseObject) => {
-        return arr[1].texture;
-      });
+      const cardsTextures:PIXI.Texture[] = this.getTexturesByType('card', resources);
+
       // we use ParticleContainer to get the maximum performance
       this.particleContainer = new ParticleContainer(144, {position:true, rotation:true});
       this.addChild(this.particleContainer as any);
@@ -47,6 +44,16 @@ export default class StackView extends View {
     }
     this.initialized = true;
     this.resetCardsPositions();
+  }
+
+  private getTexturesByType(type:string, resources:any):PIXI.Texture[] {
+    const textures:PIXI.Texture[] = [];
+    for (let name in resources) {
+      if (name.includes(type)) {
+        textures.push(resources[name].texture);
+      }
+    }
+    return textures;
   }
 
   private createTitle(text:string, fontSize:number, posX:number, posY:number) {

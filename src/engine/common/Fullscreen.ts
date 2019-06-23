@@ -6,11 +6,11 @@ export default class Fullscreen {
     try {
       if (elem.requestFullscreen) {
         elem.requestFullscreen();
-      } else if (elem.mozRequestFullScreen) { /* Firefox */
+      } else if (elem.mozRequestFullScreen) {
         elem.mozRequestFullScreen();
-      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+      } else if (elem.webkitRequestFullscreen) {
         elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+      } else if (elem.msRequestFullscreen) {
         elem.msRequestFullscreen();
       }
     } catch(e) {}
@@ -22,11 +22,11 @@ export default class Fullscreen {
     try {
       if (elem.exitFullscreen) {
         elem.exitFullscreen();
-      } else if (elem.mozCancelFullScreen) { /* Firefox */
+      } else if (elem.mozCancelFullScreen) {
         elem.mozCancelFullScreen();
-      } else if (elem.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+      } else if (elem.webkitExitFullscreen) {
         elem.webkitExitFullscreen();
-      } else if (elem.msExitFullscreen) { /* IE/Edge */
+      } else if (elem.msExitFullscreen) {
         elem.msExitFullscreen();
       }
     } catch(e) {}
@@ -34,7 +34,11 @@ export default class Fullscreen {
 
   public static isInFullscreen():boolean {
     const elem:any = document;
-    return elem.fullscreenElement;
+    let inFullScreen:boolean = false;
+    try {
+      inFullScreen = elem.fullscreenElement;
+    } catch(e) {}
+    return inFullScreen;
   }
 
 }
