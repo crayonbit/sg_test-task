@@ -28,12 +28,14 @@ export default class PanelView extends View {
 
   public initialize():void {
     if (DeviceUtil.isMobile()) {
-      const graphics:Graphics = new Graphics();
-      graphics.beginFill(0x2a3b4e);
-      graphics.drawRect(0,0,1920,1080);
-      graphics.interactive = true;
-      this.addChild(graphics);
-      graphics.on('pointerup', () => Fullscreen.openFullscreen());
+
+      const background:Graphics = new Graphics();
+      background.beginFill(0x111112);
+      background.drawRect(0,0,1920,1080);
+      background.interactive = true;
+      this.addChild(background);
+
+      background.on('pointerup', () => Fullscreen.openFullscreen());
     } else {
       this.fullscreenButton = this.createFlatButton('Fullscreen', 180, 100);
       this.fullscreenButton.name = 'fullscreen';
