@@ -31,8 +31,8 @@ export default class MenuView extends View {
 
     const settings = model.settings;
 
-    this.createTitle('Test Task', 80, settings.designWidth / 2, 200);
-    this.createTitle('Dmytro Lobach', 50, settings.designWidth / 2, 300);
+    this.createTitle('Test Task', 100, settings.designWidth / 2, 150);
+    this.createTitle('Dmytro Lobach', 60, settings.designWidth / 2, 250);
     this.buttons = this.createButtons(settings.designWidth / 2, 500, 0, 140);
 
     this.initialized = true;
@@ -51,7 +51,7 @@ export default class MenuView extends View {
   private createButtons(startX:number, startY:number, biasX:number, biasY:number):FlatButton<TextField,Graphics>[] {
     const buttons:FlatButton<TextField,Graphics>[] = [];
     ['Stacks', 'Mixed', 'Fire'].forEach((buttonText:string, i:number) => {
-      const button:FlatButton<TextField, Graphics> = this.createFlatButton(`${i+1}. ${buttonText}`, 280, 100);
+      const button:FlatButton<TextField, Graphics> = this.createFlatButton(`${i+1}. ${buttonText}`, 300, 100);
       button.name = buttonText.toLowerCase();
       button.position.set(startX + i * biasX, startY + i * biasY);
       buttons.push(button);
@@ -95,7 +95,7 @@ export default class MenuView extends View {
   private createButtonLabels(text: string):IFlatButtonStates<TextField> {
     const out:TextField = new TextField(text);
     out.anchor.set(.5, .5);
-    out.style.fontSize = 28;
+    out.style.fontSize = 42;
     out.style.fill = 0xffffff;
 
     return {

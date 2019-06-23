@@ -91,7 +91,7 @@ export default class PanelView extends View {
   private createButtonLabels(text: string):IFlatButtonStates<TextField> {
     const out:TextField = new TextField(text);
     out.anchor.set(.5, .5);
-    out.style.fontSize = 28;
+    out.style.fontSize = 34;
     out.style.fill = 0xffffff;
 
     return {

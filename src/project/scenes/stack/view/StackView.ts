@@ -43,7 +43,7 @@ export default class StackView extends View {
       this.addChild(this.particleContainer as any);
       this.cards = this.createCards(cardsTextures);
 
-      this.createTitle('1. Stacks', 40, 960, 50);
+      this.createTitle('1. Stacks', 60, 960, 60);
     }
     this.initialized = true;
     this.resetCardsPositions();

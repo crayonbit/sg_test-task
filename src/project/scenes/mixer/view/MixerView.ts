@@ -32,7 +32,7 @@ export default class MixerView extends View {
       return;
     }
 
-    this.createTitle('2. Mixed Text and Sprites', 40, 960, 50);
+    this.createTitle('2. Mixed Text and Sprites', 60, 960, 60);
 
     this.mixer = new MixerTool();
     this.mixer.position.set(200, 560);
@@ -67,9 +67,9 @@ export default class MixerView extends View {
   }
 
   public start():void {
-    this.mixer.showMixedElements(3, MathUtil.getRandomRangeInt(40, 60), 2);
+    this.mixer.showMixedElements(3, MathUtil.getRandomRangeInt(36, 60), 2);
     this.interval = setInterval(() => {
-      this.mixer.showMixedElements(3, MathUtil.getRandomRangeInt(30, 60), 2);
+      this.mixer.showMixedElements(3, MathUtil.getRandomRangeInt(36, 60), 2);
     }, 2000);
 
     this.started = true;

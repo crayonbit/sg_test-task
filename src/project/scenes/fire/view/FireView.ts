@@ -31,7 +31,7 @@ export default class FireView extends View {
       return;
     }
 
-    this.createTitle('3. Fire', 40, 960, 50);
+    this.createTitle('3. Fire', 60, 960, 60);
 
     this.particlesContainer = new Container();
     this.addChild(this.particlesContainer);
