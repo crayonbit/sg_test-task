@@ -6,6 +6,8 @@ import TextField from "../../../../engine/display/TextField";
 import { Graphics } from "pixi.js";
 import SceneManager from '../../../../engine/common/SceneManager';
 import { SceneID } from '../../../Settings';
+import Fullscreen from '../../../../engine/common/Fullscreen';
+import DeviceUtil from "../../../../engine/utils/DeviceUtil";
 
 export default class MenuController implements IController {
 
@@ -24,7 +26,12 @@ export default class MenuController implements IController {
 
   private addListeners():void {
     this.view.buttons.forEach((button:FlatButton<TextField, Graphics>) => {
-      button.on('pointerdown', () => this.handleClick(button.name));
+      button.on('pointerdown', () => {
+        this.handleClick(button.name);
+        if (DeviceUtil.isMobile()) {
+          button.on('pointerup', () => Fullscreen.openFullscreen());
+        }
+      });
     });
   }
 
